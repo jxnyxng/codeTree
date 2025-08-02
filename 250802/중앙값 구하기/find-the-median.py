@@ -1,3 +1,8 @@
-a = list(map(int, input().split()))
-a.sort()
-print(a[1])
+a,b,c = map(int, input().split())
+
+if a>b>c or c>b>a:
+    print(b)
+elif c>a>b or b>a>c:
+    print(a)
+else:
+    print(c)
