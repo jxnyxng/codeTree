@@ -1,16 +1,9 @@
 n=int(input())
+sum=0
 num=0
-temp=0
 
-while(True):
-    temp += 1
-    
-    if temp==100:
-        break
-
-    if num+temp >= n:
-        print(temp)
-        break
-    else:
-        num += temp
+while sum < n:  
+    num+=1
+    sum+=num
+print(num)
  
