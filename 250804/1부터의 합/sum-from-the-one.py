@@ -5,8 +5,8 @@ temp=0
 while(True):
     if temp==100:
         break
-        
-    if n == num+temp:
+
+    if num+temp >= n:
         print(num)
         break
     else:
