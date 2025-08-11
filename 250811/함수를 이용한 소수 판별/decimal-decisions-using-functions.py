@@ -3,7 +3,9 @@ a, b = map(int, input().split())
 def sol(a,b):
     s=0
     for i in range(a,b+1):
-        for j in range(2, i):
+        for j in range(2, i+1):
+            if i==2:
+                s+=i
             if i%j==0:
                 break
             elif j==i-1:
