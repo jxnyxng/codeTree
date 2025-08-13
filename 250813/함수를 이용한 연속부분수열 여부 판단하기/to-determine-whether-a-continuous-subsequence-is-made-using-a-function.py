@@ -3,10 +3,11 @@ a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 
 def sol(a, b):
-    for i in range(0, n1):
+    for i in range(0, n1-n2+1):
         if a[i]==b[0]:
             if checking(i):
                 return 'Yes'
+
     return 'No'
 
 
