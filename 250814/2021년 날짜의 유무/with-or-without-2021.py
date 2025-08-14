@@ -9,10 +9,13 @@ def check_M(M):
 def check_D(M, D):
     sd = 1
     ed =31
-    if M%2==0:
-        ed-=1
+    if M<=7 and M%2==0:
+        ed=30
+    elif M>7 and M%2!=0:
+        ed=30
+        
     if M==2:
-        ed-=1
+        ed=28
     
     if D<=ed:
         return True
