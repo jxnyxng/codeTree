@@ -9,7 +9,10 @@ def yoon(Y):
         return False
 
 def Max_D(M):
-    if M<=7:
+    if M==2:
+        return 28
+
+    if M!=2 and M<=7:
         if M%2!=0:
             return 31
         else:
