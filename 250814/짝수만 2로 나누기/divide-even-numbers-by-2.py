@@ -6,6 +6,5 @@ for i in range(n):
     if temp%2==0:
         arr[i]//=2
 
-for i in arr:
-    print(i, end=' ')
+print(*arr)
 
