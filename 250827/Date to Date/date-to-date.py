@@ -5,9 +5,9 @@ d = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 a = d1
 b = d2
 
-for i in range(m1):
+for i in range(m1-1):
     a += d[i]
-for i in range(m2):
+for i in range(m2-1):
     b += d[i]
 
-print(b-a)
+print(b-a+1)
