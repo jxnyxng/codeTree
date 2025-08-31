@@ -14,7 +14,7 @@ arr = []
 for i in range(n):
     arr.append(S(students[i][0], students[i][1], students[i][2]))
 
-arr.sort(key=lambda x:(x.h -x.w))
+arr.sort(key=lambda x:(x.h, -x.w))
 
 for i in arr:
     print(i.h, i.w, i.idx)
