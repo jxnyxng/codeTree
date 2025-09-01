@@ -15,7 +15,8 @@ gap2 = Mo2*(m2-1) + d2
     
 gap = gap2 - gap1
 check = gap%7
-
+if check<0:
+    check *= -1
 answer = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 print(answer[check])
