@@ -7,7 +7,7 @@ for i in range(len(n)-1, -1, -1):
     temp += (int(n[i]) * (a**i))
 ans = []
 
-while temp>=2:
+while temp>=b:
     ans.append(temp%b)
     temp//=b
 
