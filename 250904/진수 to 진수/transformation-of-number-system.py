@@ -4,7 +4,7 @@ n = input()
 # 을 b 진수로
 temp = 0
 for i in range(len(n)-1, -1, -1):
-    temp += (int(n[i]) * (a**i))
+    temp += (int(n[i]) * (a**(len(n)-i-1)))
 ans = []
 
 while temp>=b:
