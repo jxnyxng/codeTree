@@ -13,4 +13,7 @@ for i in range(n):
         ans = max(ans, len(stack))
         while len(stack)>0: stack.pop()
 
+if len(stack)>0:
+    ans = max(ans, len(stack))
+    while len(stack)>0: stack.pop()
 print(ans)
