@@ -7,7 +7,7 @@ for i in range(5):
     for j in range(5):
         if i==j:
             continue
-        for k in range(5): 
+        for k in range(j+1, 5): 
             if k==i:
                 continue
             first = arr[i]
