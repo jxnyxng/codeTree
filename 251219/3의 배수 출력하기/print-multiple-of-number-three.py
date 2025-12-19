@@ -1,6 +1,6 @@
 n = int(input())
-cnt = 3
+cnt = 0
 
-while cnt!=(n+3):
-    print(cnt, end=' ')
+while cnt<n:
     cnt+=3
+    print(cnt, end=' ')
