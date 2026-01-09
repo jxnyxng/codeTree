@@ -1,9 +1,13 @@
 word = input()
 f = input()
 
-for i in range(1, len(word)):
-    if word[i-1] + word[i] == f:
-        print(i-1)
+for i in range(len(word)-len(f)):
+    candidate = ''
+    for j in range(i, i+len(f)):
+        candidate += word[j]
+
+    if candidate == f:
+        print(i)
         exit()
 
 print(-1)
