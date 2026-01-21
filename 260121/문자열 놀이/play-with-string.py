@@ -4,9 +4,11 @@ for _ in range(Q):
     qu, idx1, idx2 = map(str, input().split())
     
     if int(qu) == 1:
-        idx1 = int(idx1) - 1
-        idx2 = int(idx2) - 1
-        S = S[:idx1] + S[idx2] + S[idx1+1:idx2] + S[idx1] + S[idx2+1:]
+        S = list(S)  
+        temp = S[int(idx1) - 1]
+        S[int(idx1) - 1] = S[int(idx2) - 1]
+        S[int(idx2) - 1] = temp
+        S = ''.join(S)
         print(S)
     else:
         x = idx1
