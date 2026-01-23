@@ -5,37 +5,49 @@
 
 n = int(input())
 checking = []
-tree = [[] for _ in range(n+1)]
+bbs = []
+aas = set()
+tree = [[] for _ in range(10_000)]
 ans = 1
 for _ in range(n-1):
     a, b = map(int, input().split())
+    bbs.append(b)
+    aas.add(a)
 
     if not (b in checking):
         checking.append(b)
     else:
+        print(0)
+        exit()
+    
+    tree[a].append(b)
+
+root = -1
+
+for a in aas:
+    if not (a in bbs):
+        root = a
+        break
+
+visited = [False] * (10_000)
+
+def dfs(now, parent):
+    for next in tree[now]:
+        if next == parent:
+            ans = 0
+            return 
+        else:
+            if not visited[next]:
+                visited[next] = True
+                dfs(next, now)
+
+dfs(root, -1)
+
+for i in tree[root]:
+    if not visited[i]:
         ans = 0
         break
-    
-    # tree[a].append(b)
-
-# visited = [False] * (n+1)
-
-# ans = 1
-# def dfs(now, parent):
-#     for next in tree[now]:
-#         if next == parent:
-#             ans = 0
-#             return 
-#         elif not visited[next]:
-#             visited[next] = True
-#             dfs(next, now)
-
-# dfs(1, -1)
-
-# for i in range(1, n+1):
-#     if not visited[i]:
-#         ans = 0
-#         break
 
 print(ans)
+
 
