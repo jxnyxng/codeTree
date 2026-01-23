@@ -1,54 +1,57 @@
+import sys
+sys.setrecursionlimit(10**9)
 # 사이클, 끊긴 부분 체크
 
 # dfs 이후 visited = False 있으면 끊긴거
 # 부모 노드가 같은데 연결되면 사이클
 
 n = int(input())
-checking = []
-bbs = []
-aas = set()
-tree = [[] for _ in range(10_002)]
+
+tree = [[] for _ in range(10001)]
+deg = [0] * 10001
+used = [False] * 10001
+visited = [False] * 10001
 ans = 1
-for _ in range(n-1):
-    a, b = map(int, input().split())
-    bbs.append(b)
-    aas.add(a)
 
-    if not (b in checking):
-        checking.append(b)
-    else:
-        print(0)
-        exit()
-    
-    tree[a].append(b)
+# 입력 받기
+for _ in range(n):
+    try:
+        line = sys.stdin.readline()
+        if not line: break
+        a, b = map(int, line.split())
+        
+        tree[a].append(b)
+        deg[b] += 1
+        used[a] = True
+        used[b] = True
+    except: break
 
-root = -1
+root = 0
 
-for a in aas:
-    if not (a in bbs):
-        root = a
-        break
-
-visited = [False] * (10_002)
-
-def dfs(now, parent):
-    for next in tree[now]:
-        if next == parent:
+for i in range(1, 10001):
+    if used[i] and deg[i] == 0:
+        if root != 0:
             ans = 0
-            return 
-        else:
-            if not visited[next]:
-                visited[next] = True
-                dfs(next, now)
+        root = i
 
-dfs(root, -1)
+if root == 0:
+    ans = 0
 
-for i in tree[root]:
-    if not visited[i]:
+for i in range(1, 10001):
+    if used[i] and i != root and deg[i] != 1:
         ans = 0
-        break
+
+def dfs(now):
+    visited[now] = True
+    for next_node in tree[now]:
+        if not visited[next_node]:
+            dfs(next_node)
+
+if ans == 1 and root != 0:
+    dfs(root)
+
+for i in range(1, 10001):
+    if used[i] and not visited[i]:
+        ans = 0
 
 print(ans)
-
-
-
