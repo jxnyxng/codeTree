@@ -7,7 +7,7 @@ n = int(input())
 checking = []
 bbs = []
 aas = set()
-tree = [[] for _ in range(10_000)]
+tree = [[] for _ in range(10_002)]
 ans = 1
 for _ in range(n-1):
     a, b = map(int, input().split())
@@ -29,7 +29,7 @@ for a in aas:
         root = a
         break
 
-visited = [False] * (10_000)
+visited = [False] * (10_002)
 
 def dfs(now, parent):
     for next in tree[now]:
@@ -49,5 +49,6 @@ for i in tree[root]:
         break
 
 print(ans)
+
 
 
