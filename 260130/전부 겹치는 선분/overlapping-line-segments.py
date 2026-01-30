@@ -5,8 +5,9 @@ for i in range(n):
 
     for j in range(a, b+1):
         arr[j] += 1
-        if arr[j] == 3:
+        if arr[j] == n:
             print('Yes')
             exit()
 
 print('No')
+
